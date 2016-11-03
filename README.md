@@ -13,8 +13,6 @@ my-app/
   .eslintignore                       // ESLint exceptions
   build/                              // Production ready folder
   public/                             // Public folder to store static files
-    img/                              // Image path
-      component/                      // Image path
     index.html                        // HTML template
     favicon.ico                       // Favicon
   src/                                // Application source folder
@@ -28,6 +26,8 @@ my-app/
       Container.jx(x)                 // React-Redux container (linked in routes.js(x))
     css/                              // Application Styles like (reset.css, normalize.css, fonts.css)
       _include-media.scss             // [include-media](http://include-media.com/) Simple, elegant and maintainable media queries in Sass
+    img/                              // Images path
+      component/                      // Component images path
     redux/                            // Redux implementation
       middlewares/                    // Redux middlewares and promises from https://github.com/reactGo/reactGo
         preRenderMiddleware.js        // preRenderMiddleware for server rendering (currently not used)
