@@ -23,10 +23,11 @@
     "redux-thunk": "^2.1.0"
   },
   "scripts": {
+    "build:sass": "node-sass src/components -o src/components",
     "watch:sass": "node-sass src/components -wo src/components",
     "start": "concurrently --kill-others \"npm run watch:sass\" \"react-scripts start\"",
     "react-start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run build:sass && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
