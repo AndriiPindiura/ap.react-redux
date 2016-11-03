@@ -1,7 +1,10 @@
-@import '_include-media';
+@import '../../css/_include-media';
 
 .ap-react-app.main {
   text-align: center;
+  @include media(">=phone", "<=tablet") {
+    background: #000;
+  }
 
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

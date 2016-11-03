@@ -1,16 +1,25 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+## Folder Structure
+
+After creation, your project should look like this:
+
 ```
 my-app/
-  README.md
-  node_modules/
-  package.json
-  public/
-    index.html
-    favicon.ico
-  src/
+  README.md                           // This file
+  node_modules/                       // Modules to run and work application
+  package.json                        // Project configuration file
+  .eslintrc                           // ESLint rules
+  .eslintignore                       // ESLint exceptions
+  build/                              // Production ready folder
+  public/                             // Public folder to store static files
+    img/                              // Image path
+      component/                      // Image path
+    index.html                        // HTML template
+    favicon.ico                       // Favicon
+  src/                                // Application source folder
     components/                       // React components
-      component/
+      component/                      // React component folder
         component.js(x)               // React component file
         component.css                 // Compiled Styles (please do not edit)
         component.scss                // component Styles (edit styles here) auto compiled to css
@@ -18,19 +27,50 @@ my-app/
       App.js(x)                       // root react-redux container - render children route containers
       Container.jx(x)                 // React-Redux container (linked in routes.js(x))
     css/                              // Application Styles like (reset.css, normalize.css, fonts.css)
-    img/                              // Image path
-      component/                      // Image path
+      _include-media.scss             // [include-media](http://include-media.com/) Simple, elegant and maintainable media queries in Sass
     redux/                            // Redux implementation
       middlewares/                    // Redux middlewares and promises from https://github.com/reactGo/reactGo
         preRenderMiddleware.js        // preRenderMiddleware for server rendering (currently not used)
-        promiseMiddleware.js          // promise middleware for actions and http requests
-    App.css
-    App.js
-    App.test.js
-    index.css
-    index.js
-    logo.svg
+        promiseMiddleware.js          // Promise middleware for actions and http requests (REQUEST, SUCCESS, FAIL types)
+      modules/                        // Redux modules (reducers&actions)
+        module/                       // Incapsulated redux module
+          index.js                    // implementation reducer, actions and constants
+        index.js                      // Root-reducer combineReducers
+      configureStore.js               // Store configuration, apply middlewares and hot modules
+    index.js                          // App entry point. Import store from redux, apply routing and render application
+    routes.js(x)                      // React-router child routes and route logic
 ```
+For the project to build, **these files must exist with exact filenames**:
+
+* `public/index.html` is the page template;
+* `src/index.js` is the JavaScript entry point.
+
+You can delete or rename the other files.
+
+You may create subdirectories inside `src`. For faster rebuilds, only files inside `src` are processed by Webpack.<br>
+You need to **put any JS and CSS files inside `src`**, or Webpack won’t see them.
+
+Only files inside `public` can be used from `public/index.html`.<br>
+Read instructions below for using assets from JavaScript and HTML.
+
+You can, however, create more top-level directories.<br>
+They will not be included in the production build so you can use them for things like documentation.
+
+## Custom Packages, added to Original Boilerplate
+
+- [Concurrently for multiple tasks](https://www.npmjs.com/package/concurrently)
+- [ESLint JavaScript Linter](http://eslint.org/)
+  - [ESLint Airbnb ruleset](https://www.npmjs.com/package/eslint-config-airbnb)
+  - [ESLint ES2015+(ES6+) import/export syntax](https://www.npmjs.com/package/eslint-plugin-import)
+  - [ESLint JSX ruleset](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
+  - [ESLint React ruleset](https://www.npmjs.com/package/eslint-plugin-react)
+- [Node-SASS add SASS(SCSS) support for project](https://www.npmjs.com/package/node-sass)
+- [React Redux Official React bindings for Redux](https://github.com/reactjs/react-redux)
+- [React Router is a complete routing library for React](https://github.com/ReactTraining/react-router)
+- [react-router-redux Ruthlessly simple bindings to keep react-router and redux in sync](https://www.npmjs.com/package/react-router-redux)
+- [Redux data flow](http://redux.js.org/)
+- [Redux Logger middleware](https://www.npmjs.com/package/redux-logger)
+- [Thunk middleware for Redux](https://github.com/gaearon/redux-thunk)
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
@@ -104,43 +144,6 @@ We commit to keeping the breaking changes minimal so you can upgrade `react-scri
 
 We are always open to [your feedback](https://github.com/facebookincubator/create-react-app/issues).
 
-## Folder Structure
-
-After creation, your project should look like this:
-
-```
-my-app/
-  README.md
-  node_modules/
-  package.json
-  public/
-    index.html
-    favicon.ico
-  src/
-    App.css
-    App.js
-    App.test.js
-    index.css
-    index.js
-    logo.svg
-```
-
-For the project to build, **these files must exist with exact filenames**:
-
-* `public/index.html` is the page template;
-* `src/index.js` is the JavaScript entry point.
-
-You can delete or rename the other files.
-
-You may create subdirectories inside `src`. For faster rebuilds, only files inside `src` are processed by Webpack.<br>
-You need to **put any JS and CSS files inside `src`**, or Webpack won’t see them.
-
-Only files inside `public` can be used from `public/index.html`.<br>
-Read instructions below for using assets from JavaScript and HTML.
-
-You can, however, create more top-level directories.<br>
-They will not be included in the production build so you can use them for things like documentation.
-
 ## Available Scripts
 
 In the project directory, you can run:
@@ -168,6 +171,7 @@ Your app is ready to be deployed!
 
 ### `npm run eject`
 
+
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
@@ -175,6 +179,10 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+### `npm run watch:sass`
+
+Compile and watch changes SASS to CSS
 
 ## Displaying Lint Output in the Editor
 

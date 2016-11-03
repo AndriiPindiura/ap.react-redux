@@ -1,9 +1,8 @@
 import React from 'react';
-import logo from '../../img/logo.svg';
-import style from './main.css';
+import logo from '../../../public/img/main/logo.svg';
+import './main.css';
 
 const Main = () => {
-  console.log(style);
   return (
     <div className="ap-react-app main">
       <div className="App-header">
