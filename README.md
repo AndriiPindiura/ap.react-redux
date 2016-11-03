@@ -1,5 +1,37 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+```
+my-app/
+  README.md
+  node_modules/
+  package.json
+  public/
+    index.html
+    favicon.ico
+  src/
+    components/                       // React components
+      component/
+        component.js(x)               // React component file
+        component.css                 // Compiled Styles (please do not edit)
+        component.scss                // component Styles (edit styles here) auto compiled to css
+    containers/                       // React-Redux containers with mapped state and actions
+      App.js(x)                       // root react-redux container - render children route containers
+      Container.jx(x)                 // React-Redux container (linked in routes.js(x))
+    css/                              // Application Styles like (reset.css, normalize.css, fonts.css)
+    img/                              // Image path
+      component/                      // Image path
+    redux/                            // Redux implementation
+      middlewares/                    // Redux middlewares and promises from https://github.com/reactGo/reactGo
+        preRenderMiddleware.js        // preRenderMiddleware for server rendering (currently not used)
+        promiseMiddleware.js          // promise middleware for actions and http requests
+    App.css
+    App.js
+    App.test.js
+    index.css
+    index.js
+    logo.svg
+```
+
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
